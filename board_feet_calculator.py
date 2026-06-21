@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Board Feet Calculator", page_icon="🪵", layout="wide")
 
@@ -27,7 +28,19 @@ st.markdown(
 
 st.title("🪵 Board Feet Cost Calculator")
 st.caption("Know what your lumber's going to cost before you make a cut.")
-st.info("👈 Add and edit your boards in the sidebar.")
+if st.button("👈 Add and edit your boards in the sidebar", type="primary", use_container_width=True):
+    components.html(
+        """
+        <script>
+        const doc = window.parent.document;
+        const btn = doc.querySelector('[data-testid="collapsedControl"]')
+                 || doc.querySelector('[data-testid="stSidebarCollapsedControl"]')
+                 || doc.querySelector('[data-testid="stSidebarCollapseButton"]');
+        if (btn) { btn.click(); }
+        </script>
+        """,
+        height=0,
+    )
 
 # ---------------- Sidebar: inputs ----------------
 with st.sidebar:
