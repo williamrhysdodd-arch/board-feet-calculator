@@ -2,8 +2,32 @@ import streamlit as st
 
 st.set_page_config(page_title="Board Feet Calculator", page_icon="🪵", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapseButton"],
+    [data-testid="stSidebarCollapsedControl"] {
+        background-color: #A0522D !important;
+        border-radius: 8px !important;
+        padding: 6px !important;
+    }
+    [data-testid="collapsedControl"] svg,
+    [data-testid="stSidebarCollapseButton"] svg,
+    [data-testid="stSidebarCollapsedControl"] svg {
+        width: 28px !important;
+        height: 28px !important;
+        color: white !important;
+        fill: white !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("🪵 Board Feet Cost Calculator")
 st.caption("Know what your lumber's going to cost before you make a cut.")
+st.info("👈 Add and edit your boards in the sidebar.")
 
 # ---------------- Sidebar: inputs ----------------
 with st.sidebar:
